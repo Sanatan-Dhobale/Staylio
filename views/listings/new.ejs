@@ -1,0 +1,65 @@
+<% layout("/layouts/boilerplate") %>
+    <div class="row mt-3">
+        <div class="col-8 offset-2">
+
+            <h3>Create a new listing</h3>
+            <form class="needs-validation" novalidate method="post" action="/listings" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input required class="form-control" name="listing[title]" placeholder="Add a catchy title"
+                        type="text">
+                    <div class="valid-feedback">
+                        title looks good.
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea required class="form-control" name="listing[description]" placeholder="Enter description"
+                        id=""></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="image">Upload Image</label>
+                    <input class="form-control" name="listing[image]" placeholder="Enter Img URL/Link" type="file">
+                </div>
+
+                <div class="row">
+                    <div class="mb-3 col-md-4">
+                        <label class="form-label" for="price">Price</label>
+                        <input required class="form-control" name="listing[price]" placeholder="1200">
+                        <div class="invalid-feedback">
+                            Price should be valid.
+                        </div>
+                    </div>
+
+                    <div class="mb-3 col-md-8">
+                        <label class="form-label" for="country">Country</label>
+                        <input required class="form-control" name="listing[country]" placeholder="India" type="text">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="location">Location</label>
+                    <input required class="form-control" name="listing[location]" placeholder="Mumbai, Maharashtra"
+                        type="text">
+
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="category">Category</label>
+                    <select name="listing[category]" id="category" class="form-select" required>
+                        <option value="">Select category</option>
+                        <option value="trending">Trending</option>
+                        <option value="rooms">Rooms</option>
+                        <option value="iconic_cities">Iconic Cities</option>
+                        <option value="mountains">Mountains</option>
+                        <option value="castles">Castles</option>
+                        <option value="arctic">Arctic</option>
+                        <option value="camping">Camping</option>
+                        <option value="farms">Frams</option>
+                        <option value="amazing_pools">Amazing Pools</option>
+                    </select>
+
+                </div>
+                <button class="btn btn-dark add-btn">Add</button>
+            </form>
+        </div>
+    </div>
