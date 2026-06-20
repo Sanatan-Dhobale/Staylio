@@ -1,12 +1,12 @@
 <% layout("/layouts/boilerplate.ejs") %>
 
     <div class="row mt-3">
-        <div class="col-8 offset-3">
+        <div class="col-12 col-md-8 mx-auto">
             <h3>
                 <%=listing.title%>
             </h3>
         </div>
-        <div class="card col-6 offset-3 show-card">
+        <div class="card col-12 col-md-8 mx-auto show-card">
             <img src="<%= listing.image.url %>" class="card-img-top show-image" alt="Listing_image">
             <div class="card-body">
                 <p class="card-text">
@@ -26,18 +26,18 @@
             </div>
         </div>
         <% if(currUser && listing.owner._id.equals(currUser._id)) { %>
-            <div class="btns">
-                <a class="btn btn-dark add-btn col-1 offset-3" href="/listings/<%=listing._id%>/edit">Edit</a>
+            <div class="btns d-flex gap-2 justify-content-center mt-2">
+                <a class="btn btn-dark add-btn edit-btn" href="/listings/<%=listing._id%>/edit">Edit</a>
 
                 <form method="POST" action="/listings/<%=listing._id%>?_method=Delete">
-                    <button class="btn btn-dark offset-5">Delete</button>
+                    <button class="btn btn-dark delete-btn">Delete</button>
                 </form>
             </div>
             <% } %>
                 <hr>
 
-                <div class="col-8 offset-3 mb-3">
-                    <% if (currUser) { %>
+                <div class="col-12 col-md-8 mx-auto mb-3">
+                   
                         <h4>Leave a review</h4>
                         <form class="needs-validation" novalidate action="/listings/<%=listing._id%>/reviews"
                             method="POST">
@@ -70,7 +70,7 @@
                             <button class="btn btn-dark add-btn">Submit</button>
                         </form>
                         <hr>
-                        <% } %>
+                        
 
                             <% if (listing.reviews.length> 0) { %>
 
@@ -79,7 +79,7 @@
 
 
                                     <% for (let review of listing.reviews) { %>
-                                        <div class="card col-5 mb-3 ms-3">
+                                        <div class="card col-12 col-md-5 mb-3 ms-md-3">
                                             <div class="card-body">
                                                 <h5 class="card-title">@<%= review.author.username %>
                                                 </h5>
